@@ -86,7 +86,7 @@ const TaskList = () => {
                     placeholder="Enter a task"
                     value={form.name}
                     onChange={handleChange}
-                    className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="border border-gray-300 rounded px-3 py-2 hover:ring-1 hover:ring-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
 
                 <textarea
@@ -95,7 +95,7 @@ const TaskList = () => {
                     value={form.description}
                     onChange={handleChange}
                     rows="3"
-                    className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="border border-gray-300 rounded px-3 py-2 hover:ring-1 hover:ring-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
 
                 {error && (
@@ -104,7 +104,7 @@ const TaskList = () => {
 
                 <button 
                     type="submit"
-                    className="bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700 transition"
+                    className="bg-blue-600 text-white rounded px-4 py-2 cursor-pointer hover:bg-blue-700 transition"
                 >
                     Add
                 </button>

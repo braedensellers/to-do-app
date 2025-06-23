@@ -49,10 +49,12 @@ const TaskItem = ({ task, onDelete, onUpdate }) => {
                             type="checkbox"
                             checked={!!task.complete}
                             onChange={handleToggleComplete}
-                            className="w-5 h-5 cursor-pointer mr-2"
+                            className="w-5 h-5 cursor-pointer mr-2 transition-all"
                         />
 
-                        <h4 className="font-bold m-0 flex items-center h-8">{task.name}</h4>
+                        <h4 className={`font-bold m-0 flex items-center h-8 transition-colors ${task.complete ? 'text-black/40' : ''}`}>
+                            {task.name}
+                        </h4>
 
                         <div className="ml-auto flex items-center gap-2">
                             <button
@@ -74,7 +76,9 @@ const TaskItem = ({ task, onDelete, onUpdate }) => {
                         </div>
                     </div>
                     {task.description !== '' && (
-                        <div className="pl-8 mt-1 text-gray-600 text-sm text-left">{task.description}</div>
+                        <div className={`pl-8 mt-1 text-sm text-left transition-colors ${task.complete ? 'text-gray-600/40' : 'text-gray-600'}`}>
+                            {task.description}
+                        </div>
                     )}
                 </div>
             )}
