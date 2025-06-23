@@ -89,7 +89,11 @@ const TaskItem = ({ task, onDelete, onUpdate }) => {
                         </div>
                     </div>
                     {task.description !== '' && (
-                        <div className={`pl-8 mt-1 text-sm text-left transition-colors ${task.complete ? 'text-gray-600/40 line-through' : 'text-gray-600'}`}>
+                        <div className={`
+                                pl-8 pr-8 mt-1 text-sm text-left transition-colors max-w-sm text-wrap 
+                                ${task.complete ? 'text-gray-600/40 line-through' : 'text-gray-600'}
+                            `}
+                        >
                             {task.description}
                         </div>
                     )}
