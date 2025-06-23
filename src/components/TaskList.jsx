@@ -56,7 +56,7 @@ const TaskList = () => {
 
     return (
         <div className="max-w-4xl mx-auto p-6 bg-gray-100 rounded shadow-md">
-            <div className="text-2xl font-bold mb-4">Tasks</div>
+            <div className="text-2xl font-bold mb-4">My Tasks</div>
                 
             {tasks.length > 0 ? (
                 <div className="mb-6">

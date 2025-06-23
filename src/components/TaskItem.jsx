@@ -22,7 +22,7 @@ const TaskItem = ({ task, onDelete, onUpdate }) => {
     }
 
     return (
-        <li>
+        <li className={`rounded shadow p-2 mb-3 transition-all hover:shadow-lg ${task.complete ? 'bg-black/10' : 'bg-white'}`}>
             {isEditing ? (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                     <input
@@ -30,16 +30,29 @@ const TaskItem = ({ task, onDelete, onUpdate }) => {
                         value={newName}
                         onChange={(e) => setNewName(e.target.value)}
                         className="border rounded px-2 py-1"
+                        placeholder="Enter a task name"
                     />
                     <textarea
                         value={newDescription}
                         onChange={(e) => setNewDescription(e.target.value)}
                         rows="3"
                         className="border rounded px-2 py-1"
+                        placeholder="Enter a description (optional)"
                     />
                     <div className="flex gap-2">
-                        <button type="submit" className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Save</button>
-                        <button type="button" onClick={() => setIsEditing(false)} className="bg-gray-300 px-3 py-1 rounded hover:bg-gray-400">Cancel</button>
+                        <button
+                            type="submit"
+                            className="bg-blue-500 text-white px-3 py-1 rounded cursor-pointer hover:bg-blue-600"
+                        >
+                            Save
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => setIsEditing(false)}
+                            className="bg-gray-300 text-black px-3 py-1 rounded cursor-pointer hover:bg-gray-400"
+                        >
+                            Cancel
+                        </button>
                     </div>
                 </form>
             ) : (
