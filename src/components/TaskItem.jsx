@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MdPriorityHigh } from 'react-icons/md';
 import { PiPencil, PiTrash } from 'react-icons/pi';
 
 const TaskItem = ({ task, onDelete, onUpdate }) => {
@@ -21,8 +22,16 @@ const TaskItem = ({ task, onDelete, onUpdate }) => {
         onUpdate(task.id, { ...task, complete: task.complete ? 0 : 1 });
     }
 
+    const handleTogglePriority = () => {
+        onUpdate(task.id, { ...task, priority: task.priority ? 0 : 1 });
+    }
+
     return (
-        <li className={`rounded shadow p-2 mb-3 transition-all hover:shadow-lg ${task.complete ? 'bg-black/10' : 'bg-white'}`}>
+        <li className={`
+                rounded shadow p-2 mb-3 transition-all hover:shadow-lg 
+                ${task.complete ? 'bg-black/10' : task.priority ? 'bg-orange-300/40' : 'bg-white'} 
+            }`}
+        >
             {isEditing ? (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                     <input
@@ -72,9 +81,17 @@ const TaskItem = ({ task, onDelete, onUpdate }) => {
                         <div className="ml-auto flex items-center gap-2">
                             <button
                                 type="button"
+                                onClick={handleTogglePriority}
+                                aria-label="Priority"
+                                className="ml-2 bg-transparent border-none cursor-pointer p-0 text-orange-500 hover:text-orange-600"
+                            >
+                                <MdPriorityHigh size={20} />
+                            </button>
+                            <button
+                                type="button"
                                 onClick={handleEditToggle}
                                 aria-label="Edit"
-                                className="ml-2 bg-transparent border-none cursor-pointer p-0 text-orange-500 hover:text-orange-600"
+                                className="bg-transparent border-none cursor-pointer p-0 text-blue-400 hover:text-blue-500"
                             >
                                 <PiPencil size={20} />
                             </button>
